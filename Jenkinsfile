@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_CREDS = credentials('docker-hub') 
         IMAGE_NAME = 'fisa-app'
-        DEPLOY_IP = '54.249.201.237'
+        DEPLOY_IP = '52.78.206.189'
         SSH_CREDS_ID = 'ec2-fastapi-server'
         CONTAINER_NAME = 'docker-fastapi'
         FULL_IMAGE_PATH = "${DOCKER_CREDS_USR}/${IMAGE_NAME}"
@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/YeonjiKim0316/fisa06-ai-jenkins.git'
+                git branch: 'main', url: 'https://github.com/thdudgus/fisa06-ai-jenkins.git'
             }
         }
 
@@ -64,7 +64,7 @@ pipeline {
         }
     }
 
-// 빌드 성공/실패 여부와 무관하게 항상 실행되는 정리 작업
+// 빌드 성공/실패 여부와 무관하게 항상 실행되는 
     post {
         always {
             // 1. 현재 빌드에서 생성한 임시 태그(fisa-app:latest) 삭제
